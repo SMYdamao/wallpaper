@@ -8,10 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		4721C15C816B01571C522E9D /* Pods_Wallpaper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE8157224B4BF59048750F9 /* Pods_Wallpaper.framework */; };
+		F46264C626FED8890059E88A /* WAMainMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46264C526FED8890059E88A /* WAMainMenuViewModel.swift */; };
+		F46264C926FEDB6E0059E88A /* WAMainWallpaperListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46264C726FEDB6E0059E88A /* WAMainWallpaperListVC.swift */; };
+		F46264CA26FEDB6E0059E88A /* WAMainWallpaperListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F46264C826FEDB6E0059E88A /* WAMainWallpaperListVC.xib */; };
+		F46264D026FEDFB20059E88A /* WAMainWallpaperSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46264CE26FEDFB20059E88A /* WAMainWallpaperSettingVC.swift */; };
+		F46264D126FEDFB20059E88A /* WAMainWallpaperSettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F46264CF26FEDFB20059E88A /* WAMainWallpaperSettingVC.xib */; };
 		F4A232C526FACF74007B10F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A232C426FACF74007B10F0 /* AppDelegate.swift */; };
-		F4A232C726FACF74007B10F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A232C626FACF74007B10F0 /* ViewController.swift */; };
+		F4A232C726FACF74007B10F0 /* WAMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A232C626FACF74007B10F0 /* WAMainVC.swift */; };
 		F4A232C926FACF78007B10F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4A232C826FACF78007B10F0 /* Assets.xcassets */; };
-		F4A232CC26FACF78007B10F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4A232CA26FACF78007B10F0 /* Main.storyboard */; };
 		F4A232D726FACFBB007B10F0 /* WACacheHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A232D626FACFBB007B10F0 /* WACacheHelper.swift */; };
 		F4A232D926FACFE6007B10F0 /* WAEventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A232D826FACFE6007B10F0 /* WAEventMonitor.swift */; };
 		F4A232DB26FAD011007B10F0 /* WADataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A232DA26FAD011007B10F0 /* WADataManager.swift */; };
@@ -30,19 +34,33 @@
 		F4A2330826FAD5C5007B10F0 /* WAGalleryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2330726FAD5C5007B10F0 /* WAGalleryModel.swift */; };
 		F4A2330B26FADBD2007B10F0 /* 001.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F4A2330A26FADBD2007B10F0 /* 001.jpeg */; };
 		F4DD10DA26FB1D4A00D6694E /* NSWindow+Wallpaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DD10D926FB1D4A00D6694E /* NSWindow+Wallpaper.swift */; };
+		F4DE486026FC6C51006AFB9C /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4DE485226FC6C51006AFB9C /* Main.strings */; };
+		F4DE486126FC6C51006AFB9C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4DE485426FC6C51006AFB9C /* Localizable.strings */; };
+		F4DE486326FC6C51006AFB9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4DE485A26FC6C51006AFB9C /* Main.storyboard */; };
+		F4DE486426FC6C51006AFB9C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4DE485F26FC6C51006AFB9C /* Info.plist */; };
+		F4DE486A26FC7589006AFB9C /* WAMainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE486926FC7589006AFB9C /* WAMainWindow.swift */; };
+		F4DE486C26FC79CA006AFB9C /* WAMainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE486B26FC79CA006AFB9C /* WAMainWindowController.swift */; };
+		F4DE486F26FC7AB2006AFB9C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4DE487126FC7AB2006AFB9C /* InfoPlist.strings */; };
+		F4DE487C26FD7B4A006AFB9C /* WABaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE487B26FD7B4A006AFB9C /* WABaseView.swift */; };
+		F4DE487E26FD975C006AFB9C /* WABaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE487D26FD975C006AFB9C /* WABaseButton.swift */; };
+		F4DE488526FDD350006AFB9C /* WAMainWallpaperItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE488326FDD350006AFB9C /* WAMainWallpaperItem.swift */; };
+		F4DE488626FDD350006AFB9C /* WAMainWallpaperItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4DE488426FDD350006AFB9C /* WAMainWallpaperItem.xib */; };
+		F4DE488826FDD4E2006AFB9C /* WAMainWallpaperModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE488726FDD4E2006AFB9C /* WAMainWallpaperModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4A4408135B8DB91544E26813 /* Pods-Wallpaper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wallpaper.debug.xcconfig"; path = "Target Support Files/Pods-Wallpaper/Pods-Wallpaper.debug.xcconfig"; sourceTree = "<group>"; };
 		57D3133D2CC0BCE6884200DF /* Pods-Wallpaper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wallpaper.release.xcconfig"; path = "Target Support Files/Pods-Wallpaper/Pods-Wallpaper.release.xcconfig"; sourceTree = "<group>"; };
 		BAE8157224B4BF59048750F9 /* Pods_Wallpaper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wallpaper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F46264C526FED8890059E88A /* WAMainMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAMainMenuViewModel.swift; sourceTree = "<group>"; };
+		F46264C726FEDB6E0059E88A /* WAMainWallpaperListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAMainWallpaperListVC.swift; sourceTree = "<group>"; };
+		F46264C826FEDB6E0059E88A /* WAMainWallpaperListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WAMainWallpaperListVC.xib; sourceTree = "<group>"; };
+		F46264CE26FEDFB20059E88A /* WAMainWallpaperSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAMainWallpaperSettingVC.swift; sourceTree = "<group>"; };
+		F46264CF26FEDFB20059E88A /* WAMainWallpaperSettingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WAMainWallpaperSettingVC.xib; sourceTree = "<group>"; };
 		F4A232C126FACF74007B10F0 /* Wallpaper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wallpaper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4A232C426FACF74007B10F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F4A232C626FACF74007B10F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F4A232C826FACF78007B10F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F4A232CB26FACF78007B10F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F4A232CD26FACF78007B10F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F4A232CE26FACF78007B10F0 /* Wallpaper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wallpaper.entitlements; sourceTree = "<group>"; };
+		F4A232C626FACF74007B10F0 /* WAMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAMainVC.swift; sourceTree = "<group>"; };
+		F4A232C826FACF78007B10F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		F4A232D626FACFBB007B10F0 /* WACacheHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WACacheHelper.swift; sourceTree = "<group>"; };
 		F4A232D826FACFE6007B10F0 /* WAEventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAEventMonitor.swift; sourceTree = "<group>"; };
 		F4A232DA26FAD011007B10F0 /* WADataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WADataManager.swift; sourceTree = "<group>"; };
@@ -61,6 +79,27 @@
 		F4A2330726FAD5C5007B10F0 /* WAGalleryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAGalleryModel.swift; sourceTree = "<group>"; };
 		F4A2330A26FADBD2007B10F0 /* 001.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 001.jpeg; sourceTree = "<group>"; };
 		F4DD10D926FB1D4A00D6694E /* NSWindow+Wallpaper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSWindow+Wallpaper.swift"; sourceTree = "<group>"; };
+		F4DE485326FC6C51006AFB9C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		F4DE485526FC6C51006AFB9C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		F4DE485626FC6C51006AFB9C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F4DE485726FC6C51006AFB9C /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/Main.strings"; sourceTree = "<group>"; };
+		F4DE485826FC6C51006AFB9C /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		F4DE485B26FC6C51006AFB9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F4DE485C26FC6C51006AFB9C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		F4DE485D26FC6C51006AFB9C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		F4DE485E26FC6C51006AFB9C /* Wallpaper.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Wallpaper.entitlements; sourceTree = "<group>"; };
+		F4DE485F26FC6C51006AFB9C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4DE486926FC7589006AFB9C /* WAMainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAMainWindow.swift; sourceTree = "<group>"; };
+		F4DE486B26FC79CA006AFB9C /* WAMainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAMainWindowController.swift; sourceTree = "<group>"; };
+		F4DE487026FC7AB2006AFB9C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F4DE487226FC7ABD006AFB9C /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		F4DE487326FC7ABE006AFB9C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		F4DE487426FC7AC0006AFB9C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		F4DE487B26FD7B4A006AFB9C /* WABaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WABaseView.swift; sourceTree = "<group>"; };
+		F4DE487D26FD975C006AFB9C /* WABaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WABaseButton.swift; sourceTree = "<group>"; };
+		F4DE488326FDD350006AFB9C /* WAMainWallpaperItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAMainWallpaperItem.swift; sourceTree = "<group>"; };
+		F4DE488426FDD350006AFB9C /* WAMainWallpaperItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WAMainWallpaperItem.xib; sourceTree = "<group>"; };
+		F4DE488726FDD4E2006AFB9C /* WAMainWallpaperModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAMainWallpaperModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +131,45 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F46264CB26FEDF690059E88A /* WAMainWallpaperListVC */ = {
+			isa = PBXGroup;
+			children = (
+				F4DE488326FDD350006AFB9C /* WAMainWallpaperItem.swift */,
+				F4DE488426FDD350006AFB9C /* WAMainWallpaperItem.xib */,
+				F4DE488726FDD4E2006AFB9C /* WAMainWallpaperModel.swift */,
+				F46264C726FEDB6E0059E88A /* WAMainWallpaperListVC.swift */,
+				F46264C826FEDB6E0059E88A /* WAMainWallpaperListVC.xib */,
+			);
+			path = WAMainWallpaperListVC;
+			sourceTree = "<group>";
+		};
+		F46264CC26FEDF7F0059E88A /* WAMainWindow */ = {
+			isa = PBXGroup;
+			children = (
+				F4DE486926FC7589006AFB9C /* WAMainWindow.swift */,
+				F4DE486B26FC79CA006AFB9C /* WAMainWindowController.swift */,
+			);
+			path = WAMainWindow;
+			sourceTree = "<group>";
+		};
+		F46264CD26FEDF8F0059E88A /* WAMainWallpaperSettingVC */ = {
+			isa = PBXGroup;
+			children = (
+				F46264CE26FEDFB20059E88A /* WAMainWallpaperSettingVC.swift */,
+				F46264CF26FEDFB20059E88A /* WAMainWallpaperSettingVC.xib */,
+			);
+			path = WAMainWallpaperSettingVC;
+			sourceTree = "<group>";
+		};
+		F46264D226FEE17F0059E88A /* WAMainVC */ = {
+			isa = PBXGroup;
+			children = (
+				F4A232C626FACF74007B10F0 /* WAMainVC.swift */,
+				F46264C526FED8890059E88A /* WAMainMenuViewModel.swift */,
+			);
+			path = WAMainVC;
+			sourceTree = "<group>";
+		};
 		F4A232B826FACF74007B10F0 = {
 			isa = PBXGroup;
 			children = (
@@ -113,17 +191,9 @@
 		F4A232C326FACF74007B10F0 /* Wallpaper */ = {
 			isa = PBXGroup;
 			children = (
-				F4A2330926FADBC1007B10F0 /* Resource */,
-				F4A232E426FAD3A8007B10F0 /* Category */,
-				F4A232E126FAD31B007B10F0 /* Network */,
-				F4A232DE26FAD14B007B10F0 /* Macro */,
-				F4A232D426FACF85007B10F0 /* Service */,
-				F4A232C426FACF74007B10F0 /* AppDelegate.swift */,
-				F4A232C626FACF74007B10F0 /* ViewController.swift */,
-				F4A232C826FACF78007B10F0 /* Assets.xcassets */,
-				F4A232CA26FACF78007B10F0 /* Main.storyboard */,
-				F4A232CD26FACF78007B10F0 /* Info.plist */,
-				F4A232CE26FACF78007B10F0 /* Wallpaper.entitlements */,
+				F4DE486526FC6CB2006AFB9C /* Core */,
+				F4DE486626FC7053006AFB9C /* WAMain */,
+				F4DE485126FC6C51006AFB9C /* SupportingFiles */,
 			);
 			path = Wallpaper;
 			sourceTree = "<group>";
@@ -181,6 +251,54 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		F4DE485126FC6C51006AFB9C /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				F4A232C826FACF78007B10F0 /* Assets.xcassets */,
+				F4A232C426FACF74007B10F0 /* AppDelegate.swift */,
+				F4DE485226FC6C51006AFB9C /* Main.strings */,
+				F4DE485426FC6C51006AFB9C /* Localizable.strings */,
+				F4DE485A26FC6C51006AFB9C /* Main.storyboard */,
+				F4DE485E26FC6C51006AFB9C /* Wallpaper.entitlements */,
+				F4DE485F26FC6C51006AFB9C /* Info.plist */,
+				F4DE487126FC7AB2006AFB9C /* InfoPlist.strings */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		F4DE486526FC6CB2006AFB9C /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F4DE487A26FD7B39006AFB9C /* Base */,
+				F4A2330926FADBC1007B10F0 /* Resource */,
+				F4A232E426FAD3A8007B10F0 /* Category */,
+				F4A232E126FAD31B007B10F0 /* Network */,
+				F4A232DE26FAD14B007B10F0 /* Macro */,
+				F4A232D426FACF85007B10F0 /* Service */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		F4DE486626FC7053006AFB9C /* WAMain */ = {
+			isa = PBXGroup;
+			children = (
+				F46264CC26FEDF7F0059E88A /* WAMainWindow */,
+				F46264D226FEE17F0059E88A /* WAMainVC */,
+				F46264CB26FEDF690059E88A /* WAMainWallpaperListVC */,
+				F46264CD26FEDF8F0059E88A /* WAMainWallpaperSettingVC */,
+			);
+			path = WAMain;
+			sourceTree = "<group>";
+		};
+		F4DE487A26FD7B39006AFB9C /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F4DE487B26FD7B4A006AFB9C /* WABaseView.swift */,
+				F4DE487D26FD975C006AFB9C /* WABaseButton.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -224,6 +342,9 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				"zh-HK",
+				"zh-Hant",
 			);
 			mainGroup = F4A232B826FACF74007B10F0;
 			productRefGroup = F4A232C226FACF74007B10F0 /* Products */;
@@ -240,9 +361,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4DE486026FC6C51006AFB9C /* Main.strings in Resources */,
+				F4DE486F26FC7AB2006AFB9C /* InfoPlist.strings in Resources */,
+				F4DE486126FC6C51006AFB9C /* Localizable.strings in Resources */,
 				F4A232C926FACF78007B10F0 /* Assets.xcassets in Resources */,
-				F4A232CC26FACF78007B10F0 /* Main.storyboard in Resources */,
+				F4DE488626FDD350006AFB9C /* WAMainWallpaperItem.xib in Resources */,
+				F46264D126FEDFB20059E88A /* WAMainWallpaperSettingVC.xib in Resources */,
+				F4DE486326FC6C51006AFB9C /* Main.storyboard in Resources */,
 				F4A2330B26FADBD2007B10F0 /* 001.jpeg in Resources */,
+				F46264CA26FEDB6E0059E88A /* WAMainWallpaperListVC.xib in Resources */,
+				F4DE486426FC6C51006AFB9C /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,20 +423,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4A232C726FACF74007B10F0 /* ViewController.swift in Sources */,
+				F4DE486A26FC7589006AFB9C /* WAMainWindow.swift in Sources */,
+				F4A232C726FACF74007B10F0 /* WAMainVC.swift in Sources */,
+				F46264C626FED8890059E88A /* WAMainMenuViewModel.swift in Sources */,
 				F4A232E026FAD154007B10F0 /* Macro.swift in Sources */,
 				F4A232D926FACFE6007B10F0 /* WAEventMonitor.swift in Sources */,
 				F4A232F826FAD455007B10F0 /* NSControl+Wallpaper.swift in Sources */,
 				F4A232FC26FAD48A007B10F0 /* NSColler+Wallpaper.swift in Sources */,
 				F4A232FA26FAD470007B10F0 /* NSButton+Wallpaper.swift in Sources */,
 				F4A2330626FAD54D007B10F0 /* WADownloadModel.swift in Sources */,
+				F46264C926FEDB6E0059E88A /* WAMainWallpaperListVC.swift in Sources */,
 				F4A232C526FACF74007B10F0 /* AppDelegate.swift in Sources */,
 				F4A2330826FAD5C5007B10F0 /* WAGalleryModel.swift in Sources */,
 				F4A2330026FAD4CC007B10F0 /* NSImage+Wallpaper.swift in Sources */,
 				F4A2330226FAD4E0007B10F0 /* Date+Wallpaper.swift in Sources */,
 				F4A232E326FAD338007B10F0 /* WANetwork.swift in Sources */,
+				F4DE488526FDD350006AFB9C /* WAMainWallpaperItem.swift in Sources */,
+				F4DE487C26FD7B4A006AFB9C /* WABaseView.swift in Sources */,
 				F4A232DB26FAD011007B10F0 /* WADataManager.swift in Sources */,
 				F4A232FE26FAD4B2007B10F0 /* String+Wallpaper.swift in Sources */,
+				F4DE486C26FC79CA006AFB9C /* WAMainWindowController.swift in Sources */,
+				F46264D026FEDFB20059E88A /* WAMainWallpaperSettingVC.swift in Sources */,
+				F4DE488826FDD4E2006AFB9C /* WAMainWallpaperModel.swift in Sources */,
+				F4DE487E26FD975C006AFB9C /* WABaseButton.swift in Sources */,
 				F4A232F626FAD428007B10F0 /* NSView+Wallpaper.swift in Sources */,
 				F4A232D726FACFBB007B10F0 /* WACacheHelper.swift in Sources */,
 				F4A2330426FAD4F4007B10F0 /* Dictionary+Wallpaper.swift in Sources */,
@@ -320,12 +457,44 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F4A232CA26FACF78007B10F0 /* Main.storyboard */ = {
+		F4DE485226FC6C51006AFB9C /* Main.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F4A232CB26FACF78007B10F0 /* Base */,
+				F4DE485326FC6C51006AFB9C /* zh-Hans */,
+				F4DE485726FC6C51006AFB9C /* zh-HK */,
+				F4DE485C26FC6C51006AFB9C /* zh-Hant */,
+			);
+			name = Main.strings;
+			sourceTree = "<group>";
+		};
+		F4DE485426FC6C51006AFB9C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F4DE485526FC6C51006AFB9C /* zh-Hans */,
+				F4DE485626FC6C51006AFB9C /* en */,
+				F4DE485826FC6C51006AFB9C /* zh-HK */,
+				F4DE485D26FC6C51006AFB9C /* zh-Hant */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		F4DE485A26FC6C51006AFB9C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F4DE485B26FC6C51006AFB9C /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F4DE487126FC7AB2006AFB9C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F4DE487026FC7AB2006AFB9C /* en */,
+				F4DE487226FC7ABD006AFB9C /* zh-HK */,
+				F4DE487326FC7ABE006AFB9C /* zh-Hans */,
+				F4DE487426FC7AC0006AFB9C /* zh-Hant */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -335,6 +504,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -396,6 +566,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -452,13 +623,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Wallpaper/Wallpaper.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Wallpaper/SupportingFiles/Wallpaper.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = S7FYXS97E3;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = Wallpaper/Info.plist;
+				INFOPLIST_FILE = Wallpaper/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -477,13 +648,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Wallpaper/Wallpaper.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Wallpaper/SupportingFiles/Wallpaper.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = S7FYXS97E3;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = Wallpaper/Info.plist;
+				INFOPLIST_FILE = Wallpaper/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",

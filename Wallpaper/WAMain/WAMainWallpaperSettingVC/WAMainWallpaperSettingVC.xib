@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="WAMainWallpaperSettingVC" customModule="Wallpaper" customModuleProvider="target">
+            <connections>
+                <outlet property="confimSettingBtn" destination="IAU-ad-Tmx" id="buX-KA-jhw"/>
+                <outlet property="downloadBtn" destination="ofk-RA-rbz" id="hGf-N3-wvi"/>
+                <outlet property="previewImage" destination="s9J-D7-gza" id="tXh-L2-njC"/>
+                <outlet property="progresBar" destination="pfO-rt-vBW" id="jpR-kz-rrf"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+                <outlet property="wallpaperDownloadView" destination="JkU-Tv-Mv7" id="Psr-Ij-WAz"/>
+                <outlet property="wallpaperSize" destination="Qry-gX-dGi" id="wb7-wn-ZWs"/>
+                <outlet property="wallpaperTitle" destination="U6R-nH-vvb" id="03r-UN-pI8"/>
+                <outlet property="windowRadioCurrent" destination="LxP-PM-aJy" id="sSC-R9-d3w"/>
+                <outlet property="windowRadioTotal" destination="t7o-7F-sYu" id="2zL-hu-h60"/>
+                <outlet property="windowSettingView" destination="ae1-lo-I0y" id="JYf-sv-DOR"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="240" height="650"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="iFg-uG-ANO" userLabel="wallpaperSettingView">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="650"/>
+                    <subviews>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="AwG-7c-Wwv" userLabel="monitorView">
+                            <rect key="frame" x="8" y="449" width="224" height="150"/>
+                            <subviews>
+                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Acg-0D-YkY" userLabel="previewBackgroundImage">
+                                    <rect key="frame" x="2" y="6" width="220" height="138"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="220" id="94u-KV-D9N"/>
+                                        <constraint firstAttribute="height" constant="138" id="qGA-Oe-XzK"/>
+                                    </constraints>
+                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="window_bg" id="I8k-Zb-MlP"/>
+                                </imageView>
+                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s9J-D7-gza" userLabel="previewImage">
+                                    <rect key="frame" x="2" y="6" width="220" height="138"/>
+                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="olr-fH-O4Z"/>
+                                </imageView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="Acg-0D-YkY" firstAttribute="centerY" secondItem="s9J-D7-gza" secondAttribute="centerY" id="32C-F4-LUn"/>
+                                <constraint firstItem="Acg-0D-YkY" firstAttribute="centerY" secondItem="AwG-7c-Wwv" secondAttribute="centerY" id="4fd-tf-kZ2"/>
+                                <constraint firstItem="Acg-0D-YkY" firstAttribute="width" secondItem="s9J-D7-gza" secondAttribute="width" id="O6b-Ys-TwP"/>
+                                <constraint firstItem="Acg-0D-YkY" firstAttribute="centerX" secondItem="AwG-7c-Wwv" secondAttribute="centerX" id="WMR-G3-g5E"/>
+                                <constraint firstAttribute="height" constant="150" id="kMy-jb-xQI"/>
+                                <constraint firstItem="Acg-0D-YkY" firstAttribute="centerX" secondItem="s9J-D7-gza" secondAttribute="centerX" id="leH-Mq-QM2"/>
+                                <constraint firstItem="Acg-0D-YkY" firstAttribute="height" secondItem="s9J-D7-gza" secondAttribute="height" id="wCL-10-FDE"/>
+                            </constraints>
+                        </customView>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="28K-ht-jur">
+                            <rect key="frame" x="18" y="614" width="204" height="16"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="显示器预览" id="F22-Hb-Ks7">
+                                <font key="font" usesAppearanceFont="YES"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="ae1-lo-I0y" userLabel="windowSettingView">
+                            <rect key="frame" x="0.0" y="332" width="240" height="97"/>
+                            <subviews>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7L3-3P-Ycg">
+                                    <rect key="frame" x="18" y="58" width="66" height="19"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="选择屏幕" id="x2L-SV-MOW">
+                                        <font key="font" metaFont="system" size="15"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <customView translatesAutoresizingMaskIntoConstraints="NO" id="Kb8-Sj-cL5" userLabel="radio01">
+                                    <rect key="frame" x="20" y="20" width="80" height="18"/>
+                                    <subviews>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tzC-a9-Vnd">
+                                            <rect key="frame" x="18" y="0.0" width="64" height="18"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="当前屏幕" id="wk2-6B-byp">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LxP-PM-aJy" customClass="WABaseButton" customModule="Wallpaper" customModuleProvider="target">
+                                            <rect key="frame" x="-2" y="-2" width="84" height="22"/>
+                                            <buttonCell key="cell" type="radio" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="iPJ-ws-dfT">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="tzC-a9-Vnd" secondAttribute="bottom" id="69D-cN-hQ0"/>
+                                        <constraint firstAttribute="trailing" secondItem="tzC-a9-Vnd" secondAttribute="trailing" id="DIa-ms-ryM"/>
+                                        <constraint firstItem="LxP-PM-aJy" firstAttribute="top" secondItem="Kb8-Sj-cL5" secondAttribute="top" id="E3w-ac-9tH"/>
+                                        <constraint firstAttribute="trailing" secondItem="LxP-PM-aJy" secondAttribute="trailing" id="RAC-CC-CPy"/>
+                                        <constraint firstAttribute="bottom" secondItem="LxP-PM-aJy" secondAttribute="bottom" id="XJf-1d-fNI"/>
+                                        <constraint firstAttribute="height" constant="18" id="aI3-xp-1zk"/>
+                                        <constraint firstItem="tzC-a9-Vnd" firstAttribute="top" secondItem="Kb8-Sj-cL5" secondAttribute="top" id="aTm-x4-zu8"/>
+                                        <constraint firstItem="LxP-PM-aJy" firstAttribute="leading" secondItem="Kb8-Sj-cL5" secondAttribute="leading" id="iIT-wJ-B4i"/>
+                                        <constraint firstAttribute="width" constant="80" id="x0l-tZ-1Zy"/>
+                                        <constraint firstItem="tzC-a9-Vnd" firstAttribute="leading" secondItem="Kb8-Sj-cL5" secondAttribute="leading" constant="20" id="zpt-AW-7Lw"/>
+                                    </constraints>
+                                </customView>
+                                <customView translatesAutoresizingMaskIntoConstraints="NO" id="XML-FW-3Gd" userLabel="radio02">
+                                    <rect key="frame" x="140" y="20" width="80" height="18"/>
+                                    <subviews>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jI6-Ld-Z9g" userLabel="所有屏幕">
+                                            <rect key="frame" x="18" y="0.0" width="64" height="18"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="所有屏幕" id="zPa-ba-8EZ">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="t7o-7F-sYu" customClass="WABaseButton" customModule="Wallpaper" customModuleProvider="target">
+                                            <rect key="frame" x="-2" y="-2" width="84" height="22"/>
+                                            <buttonCell key="cell" type="radio" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Zxp-c3-1vX">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="jI6-Ld-Z9g" firstAttribute="top" secondItem="XML-FW-3Gd" secondAttribute="top" id="0VV-pA-KII"/>
+                                        <constraint firstAttribute="trailing" secondItem="jI6-Ld-Z9g" secondAttribute="trailing" id="1iF-vW-wcy"/>
+                                        <constraint firstAttribute="bottom" secondItem="t7o-7F-sYu" secondAttribute="bottom" id="5lj-kE-cyw"/>
+                                        <constraint firstAttribute="bottom" secondItem="jI6-Ld-Z9g" secondAttribute="bottom" id="J62-P0-Bml"/>
+                                        <constraint firstItem="t7o-7F-sYu" firstAttribute="leading" secondItem="XML-FW-3Gd" secondAttribute="leading" id="YTv-vd-iv7"/>
+                                        <constraint firstItem="t7o-7F-sYu" firstAttribute="top" secondItem="XML-FW-3Gd" secondAttribute="top" id="ZxL-z3-vGp"/>
+                                        <constraint firstItem="jI6-Ld-Z9g" firstAttribute="leading" secondItem="XML-FW-3Gd" secondAttribute="leading" constant="20" id="eoH-R6-00c"/>
+                                        <constraint firstAttribute="trailing" secondItem="t7o-7F-sYu" secondAttribute="trailing" id="kmf-im-K8y"/>
+                                        <constraint firstAttribute="height" constant="18" id="mfs-8j-Ib5"/>
+                                        <constraint firstAttribute="width" constant="80" id="xP8-av-eiI"/>
+                                    </constraints>
+                                </customView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="7L3-3P-Ycg" firstAttribute="leading" secondItem="ae1-lo-I0y" secondAttribute="leading" constant="20" id="8hI-8N-x1m"/>
+                                <constraint firstItem="XML-FW-3Gd" firstAttribute="centerY" secondItem="Kb8-Sj-cL5" secondAttribute="centerY" id="AnJ-gs-nM9"/>
+                                <constraint firstItem="7L3-3P-Ycg" firstAttribute="top" secondItem="ae1-lo-I0y" secondAttribute="top" constant="20" id="PjE-Sj-Haa"/>
+                                <constraint firstAttribute="trailing" secondItem="XML-FW-3Gd" secondAttribute="trailing" constant="20" id="Sq6-hO-qWu"/>
+                                <constraint firstItem="Kb8-Sj-cL5" firstAttribute="leading" secondItem="ae1-lo-I0y" secondAttribute="leading" constant="20" id="V6E-gf-TA5"/>
+                                <constraint firstItem="Kb8-Sj-cL5" firstAttribute="top" secondItem="7L3-3P-Ycg" secondAttribute="bottom" constant="20" id="Vdc-un-Rp8"/>
+                                <constraint firstAttribute="bottom" secondItem="Kb8-Sj-cL5" secondAttribute="bottom" constant="20" id="Wz5-WM-WKX"/>
+                            </constraints>
+                        </customView>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="JkU-Tv-Mv7" userLabel="wallpaperDownloadView">
+                            <rect key="frame" x="0.0" y="138" width="240" height="186"/>
+                            <subviews>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="U6R-nH-vvb" userLabel="wallpaperTitle">
+                                    <rect key="frame" x="18" y="150" width="204" height="16"/>
+                                    <textFieldCell key="cell" alignment="center" title="Label" id="wPM-MZ-ldD">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Qry-gX-dGi" userLabel="wallpaperSize">
+                                    <rect key="frame" x="187" y="126" width="35" height="15"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Label" id="0Wv-XF-Vby">
+                                        <font key="font" metaFont="system" size="12"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <customView translatesAutoresizingMaskIntoConstraints="NO" id="JlW-5a-cHs" userLabel="downloadView">
+                                    <rect key="frame" x="20" y="76" width="200" height="30"/>
+                                    <subviews>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ofk-RA-rbz" userLabel="downloadBtn" customClass="WABaseButton" customModule="Wallpaper" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
+                                            <buttonCell key="cell" type="bevel" title="下载" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="sAy-jG-UPi">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <color key="contentTintColor" red="1" green="1" blue="1" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </button>
+                                        <progressIndicator maxValue="1" displayedWhenStopped="NO" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="pfO-rt-vBW" userLabel="progresBar">
+                                            <rect key="frame" x="0.0" y="5" width="200" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="18" id="Oa3-t6-45n"/>
+                                            </constraints>
+                                        </progressIndicator>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="pfO-rt-vBW" secondAttribute="trailing" id="6tq-EO-8yz"/>
+                                        <constraint firstItem="pfO-rt-vBW" firstAttribute="leading" secondItem="JlW-5a-cHs" secondAttribute="leading" id="Ifi-jz-ghK"/>
+                                        <constraint firstAttribute="height" constant="30" id="K0U-8J-Apg"/>
+                                        <constraint firstAttribute="bottom" secondItem="ofk-RA-rbz" secondAttribute="bottom" id="QHr-TB-JU2"/>
+                                        <constraint firstItem="ofk-RA-rbz" firstAttribute="leading" secondItem="JlW-5a-cHs" secondAttribute="leading" id="TKR-Kw-Qf3"/>
+                                        <constraint firstItem="pfO-rt-vBW" firstAttribute="centerY" secondItem="JlW-5a-cHs" secondAttribute="centerY" id="gXf-r2-cCA"/>
+                                        <constraint firstItem="ofk-RA-rbz" firstAttribute="top" secondItem="JlW-5a-cHs" secondAttribute="top" id="jrU-3d-AJE"/>
+                                        <constraint firstAttribute="trailing" secondItem="ofk-RA-rbz" secondAttribute="trailing" id="tH6-RJ-svq"/>
+                                    </constraints>
+                                </customView>
+                                <customView translatesAutoresizingMaskIntoConstraints="NO" id="fAm-J0-wiL" userLabel="confimSettingView">
+                                    <rect key="frame" x="20" y="30" width="200" height="30"/>
+                                    <subviews>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IAU-ad-Tmx" userLabel="confimSettingBtn" customClass="WABaseButton" customModule="Wallpaper" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
+                                            <buttonCell key="cell" type="bevel" title="设置壁纸" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="SuB-om-acm">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <color key="contentTintColor" red="1" green="1" blue="1" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="IAU-ad-Tmx" firstAttribute="leading" secondItem="fAm-J0-wiL" secondAttribute="leading" id="dZE-ef-JKD"/>
+                                        <constraint firstAttribute="trailing" secondItem="IAU-ad-Tmx" secondAttribute="trailing" id="eE2-tM-Hpw"/>
+                                        <constraint firstItem="IAU-ad-Tmx" firstAttribute="top" secondItem="fAm-J0-wiL" secondAttribute="top" id="tJi-ql-2Ra"/>
+                                        <constraint firstAttribute="height" constant="30" id="yFY-WD-jV2"/>
+                                        <constraint firstAttribute="bottom" secondItem="IAU-ad-Tmx" secondAttribute="bottom" id="ysA-lI-CkX"/>
+                                    </constraints>
+                                </customView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="fAm-J0-wiL" secondAttribute="trailing" constant="20" id="2YS-Zf-B5G"/>
+                                <constraint firstItem="fAm-J0-wiL" firstAttribute="leading" secondItem="JkU-Tv-Mv7" secondAttribute="leading" constant="20" id="6LK-0D-ZJU"/>
+                                <constraint firstItem="JlW-5a-cHs" firstAttribute="leading" secondItem="JkU-Tv-Mv7" secondAttribute="leading" constant="20" id="94b-eU-blx"/>
+                                <constraint firstAttribute="bottom" secondItem="fAm-J0-wiL" secondAttribute="bottom" constant="30" id="Bal-2m-nrx"/>
+                                <constraint firstItem="JlW-5a-cHs" firstAttribute="top" secondItem="Qry-gX-dGi" secondAttribute="bottom" constant="20" id="OVs-Ea-Vrh"/>
+                                <constraint firstAttribute="trailing" secondItem="Qry-gX-dGi" secondAttribute="trailing" constant="20" id="QFA-bj-jch"/>
+                                <constraint firstItem="fAm-J0-wiL" firstAttribute="top" secondItem="JlW-5a-cHs" secondAttribute="bottom" constant="16" id="SvH-jf-GKa"/>
+                                <constraint firstAttribute="trailing" secondItem="JlW-5a-cHs" secondAttribute="trailing" constant="20" id="TGK-Io-v1J"/>
+                                <constraint firstItem="U6R-nH-vvb" firstAttribute="leading" secondItem="JkU-Tv-Mv7" secondAttribute="leading" constant="20" id="e31-Y4-5FJ"/>
+                                <constraint firstItem="U6R-nH-vvb" firstAttribute="top" secondItem="JkU-Tv-Mv7" secondAttribute="top" constant="20" id="eOr-u6-fBo"/>
+                                <constraint firstItem="Qry-gX-dGi" firstAttribute="top" secondItem="U6R-nH-vvb" secondAttribute="bottom" constant="9" id="efu-1L-S8F"/>
+                                <constraint firstAttribute="trailing" secondItem="U6R-nH-vvb" secondAttribute="trailing" constant="20" id="iv1-Z1-Yqt"/>
+                            </constraints>
+                        </customView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="ae1-lo-I0y" firstAttribute="leading" secondItem="iFg-uG-ANO" secondAttribute="leading" id="0zQ-xI-qVZ"/>
+                        <constraint firstItem="JkU-Tv-Mv7" firstAttribute="leading" secondItem="iFg-uG-ANO" secondAttribute="leading" id="2bh-I9-NKe"/>
+                        <constraint firstAttribute="trailing" secondItem="28K-ht-jur" secondAttribute="trailing" constant="20" id="ERe-0c-UXQ"/>
+                        <constraint firstItem="ae1-lo-I0y" firstAttribute="top" secondItem="AwG-7c-Wwv" secondAttribute="bottom" constant="20" id="O7a-YZ-X7e"/>
+                        <constraint firstItem="JkU-Tv-Mv7" firstAttribute="top" secondItem="ae1-lo-I0y" secondAttribute="bottom" constant="8" id="ULQ-5g-bXP"/>
+                        <constraint firstAttribute="trailing" secondItem="ae1-lo-I0y" secondAttribute="trailing" id="YM5-Hy-pFR"/>
+                        <constraint firstItem="28K-ht-jur" firstAttribute="leading" secondItem="iFg-uG-ANO" secondAttribute="leading" constant="20" id="cYt-V2-gT8"/>
+                        <constraint firstItem="AwG-7c-Wwv" firstAttribute="leading" secondItem="iFg-uG-ANO" secondAttribute="leading" constant="8" id="m0I-ad-ktp"/>
+                        <constraint firstItem="AwG-7c-Wwv" firstAttribute="top" secondItem="28K-ht-jur" secondAttribute="bottom" constant="15" id="oMb-Fb-gHS"/>
+                        <constraint firstAttribute="trailing" secondItem="JkU-Tv-Mv7" secondAttribute="trailing" id="svC-tc-opZ"/>
+                        <constraint firstItem="28K-ht-jur" firstAttribute="top" secondItem="iFg-uG-ANO" secondAttribute="top" constant="20" id="tko-aw-aE8"/>
+                        <constraint firstAttribute="trailing" secondItem="AwG-7c-Wwv" secondAttribute="trailing" constant="8" id="vwv-cy-vo1"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="iFg-uG-ANO" secondAttribute="bottom" id="7m7-i3-sDv"/>
+                <constraint firstItem="iFg-uG-ANO" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="Jx1-9u-lAI"/>
+                <constraint firstAttribute="trailing" secondItem="iFg-uG-ANO" secondAttribute="trailing" id="fyU-Kg-5xQ"/>
+                <constraint firstItem="iFg-uG-ANO" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="hJ0-SG-QlC"/>
+            </constraints>
+            <point key="canvasLocation" x="-50" y="162"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="window_bg" width="220" height="137.5"/>
+    </resources>
+</document>

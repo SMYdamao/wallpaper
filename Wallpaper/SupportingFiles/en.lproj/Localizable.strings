@@ -1,0 +1,72 @@
+"WASetWallpaper" = "Set wallpaper";
+"WACategoryLast" = "New";
+"WACategoryHot" = "Hot";
+"WACategoryPopular" = "Popular";
+"WASearchPlacholder" = "keyword search";
+"WASearchTitle" = "Search";
+"WASearchKeyword" = "Please enter a keyword";
+"WADownloadAntiElection" = "Inverse";
+"WADownloadDelete" = "Delete";
+"WADownloadTitle" = "Download";
+"WADownloadSelectAll" = "Check in";
+"WADownloadCancel" = "Cancel";
+"WASettingChange" = "Change";
+"WASettingTitle" = "Setting";
+"WASettingAbout" = "About us";
+"WASettingStartup" = "Auto start at boot";
+"WASettingUnite" = "Multi-screen unified";
+"WASettingNotification" = "Change wallpaper notification";
+"WASettingAutoChange" = "Automatic switching (local)";
+"WASettingPreview" = "Preview quality";
+"WASettingSavePath" = "Storage path";
+"WASettingHotKey" = "Hot key";
+"WASettingCleanCache" = "Clear cache";
+"WASettingCleaning" = "Cleaning up...";
+"WASettingPrevious" = "Previous";
+"WASettingNext" = "Next";
+"WAAboutTitle" = "About us";
+"WAStatusExit" = "Exit";
+
+"WAAboutDesc" = "Wallpaper has thousands of high-definition wallpapers, bringing you a brand new artistic experience every day.
+
+Features：
+-Automatic wallpaper change：15 minutes, 30 minutes, 45 minutes, 1 hour, 2 hours, 1 day, etc.
+-Search：Support fuzzy/precise search to quickly find your favorite wallpaper.
+-Shortcut key：switch the wallpaper you don't like.
+-Preview wallpaper quality switch：the network is not good, switch the picture preview quality.
+-Download history：record used wallpapers to prevent accidental deletion of favorite wallpapers.
+
+Use Wallpaper to keep your Mac desktop fresh!";
+
+"WAChangeWallpaperSuccess" = "Wallpaper switch successfully";
+"WAChangeWallpaperError" = "Wallpaper switch failed";
+
+"WAAutoTimeOff" = "off";
+"WAAutoTime15" = "15 minute";
+"WAAutoTime30" = "30 minute";
+"WAAutoTime45" = "45 minute";
+"WAAutoTime60" = "1 hour";
+"WAAutoTime120" = "2 hour";
+"WAAutoTime1" = "1 day";
+"WAPreviewQuilatySmall" = "small";
+"WAPreviewQuilatyMedium" = "medium";
+"WAPreviewQuilatyFull" = "full";
+
+"WANetworkFailed" = "No data requested, please try again later";
+"WANoMoreData" = "No more data";
+"WADownloadError" = "Download failed";
+
+"WAGrayscaleColor" = "grayscale";
+"WATransparentColor" = "transparent";
+"WARedColor" = "red";
+"WAOrangeColor" = "orange";
+"WAYellowColor" = "yellow";
+"WAGreenColor" = "green";
+"WATurquoiseColor" = "turquoise";
+"WABlueColor" = "blue";
+"WALilacColor" = "lilac";
+"WAPinkColor" = "pink";
+"WAWhiteColor" = "white";
+"WAGrayColor" = "gray";
+"WABlackColor" = "black";
+"WABrownColor" = "brown";

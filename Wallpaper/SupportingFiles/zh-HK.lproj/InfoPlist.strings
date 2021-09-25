@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  Wallpaper
+
+  Created by 生茂元 on 2021/9/23.
+  
+*/
+
+CFBundleName = "我的壁纸";
+CFBundleDisplayName = "我的壁纸";

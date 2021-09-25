@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="WAMainWallpaperItem" customModule="Wallpaper" customModuleProvider="target">
+            <connections>
+                <outlet property="shadowView" destination="HK6-vd-6pE" id="v9T-WP-P6o"/>
+                <outlet property="titleLabel" destination="bwF-fR-Ri6" id="ohg-19-wh4"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+                <outlet property="wallpaperImage" destination="3qG-VA-5Vy" id="lhR-Yw-jCe"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="336" height="258"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3qG-VA-5Vy">
+                    <rect key="frame" x="0.0" y="0.0" width="336" height="258"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="47U-Hj-lwy"/>
+                </imageView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="HK6-vd-6pE" userLabel="shadowView">
+                    <rect key="frame" x="0.0" y="0.0" width="336" height="258"/>
+                </customView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bwF-fR-Ri6" userLabel="titleLabel">
+                    <rect key="frame" x="18" y="229" width="300" height="19"/>
+                    <textFieldCell key="cell" alignment="center" title="Label" id="Woz-K1-LOe">
+                        <font key="font" metaFont="systemBold" size="15"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        <allowedInputSourceLocales>
+                            <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                        </allowedInputSourceLocales>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="bwF-fR-Ri6" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="2AC-0U-Kol"/>
+                <constraint firstItem="HK6-vd-6pE" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="4Tl-w8-bEd"/>
+                <constraint firstAttribute="trailing" secondItem="3qG-VA-5Vy" secondAttribute="trailing" id="AB9-qg-7M3"/>
+                <constraint firstItem="HK6-vd-6pE" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="CWl-uL-LX4"/>
+                <constraint firstAttribute="bottom" secondItem="3qG-VA-5Vy" secondAttribute="bottom" id="IEp-qR-7Hr"/>
+                <constraint firstItem="bwF-fR-Ri6" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="Kfm-Ph-CCr"/>
+                <constraint firstAttribute="trailing" secondItem="HK6-vd-6pE" secondAttribute="trailing" id="Nx1-gR-cxv"/>
+                <constraint firstAttribute="bottom" secondItem="HK6-vd-6pE" secondAttribute="bottom" id="mWV-Vc-HED"/>
+                <constraint firstItem="3qG-VA-5Vy" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="uyV-bG-ikn"/>
+                <constraint firstItem="3qG-VA-5Vy" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="vhs-bx-KhR"/>
+                <constraint firstItem="bwF-fR-Ri6" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="10" id="wEo-v6-2hL"/>
+                <constraint firstAttribute="trailing" secondItem="bwF-fR-Ri6" secondAttribute="trailing" constant="20" id="xf1-s6-Oft"/>
+            </constraints>
+            <point key="canvasLocation" x="108" y="140"/>
+        </customView>
+    </objects>
+</document>

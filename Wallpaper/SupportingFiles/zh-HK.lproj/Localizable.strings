@@ -1,0 +1,72 @@
+"WASetWallpaper" = "設置壁紙";
+"WACategoryLast" = "最新";
+"WACategoryHot" = "熱門";
+"WACategoryPopular" = "流行";
+"WASearchPlacholder" = "關鍵詞搜索";
+"WASearchTitle" = "搜索";
+"WASearchKeyword" = "請輸入關鍵詞";
+"WADownloadAntiElection" = "反選";
+"WADownloadDelete" = "刪除";
+"WADownloadTitle" = "下載";
+"WADownloadSelectAll" = "全選";
+"WADownloadCancel" = "取消";
+"WASettingChange" = "更改";
+"WASettingTitle" = "設置";
+"WASettingAbout" = "關於我們";
+"WASettingStartup" = "開機啟動";
+"WASettingUnite" = "多屏統一";
+"WASettingNotification" = "更換壁紙通知";
+"WASettingAutoChange" = "自動切換（本地）";
+"WASettingPreview" = "預覽質量";
+"WASettingSavePath" = "存儲路徑";
+"WASettingHotKey" = "快捷鍵";
+"WASettingCleanCache" = "清除緩存";
+"WASettingCleaning" = "清理中...";
+"WASettingPrevious" = "上一張";
+"WASettingNext" = "下一張";
+"WAAboutTitle" = "關於我們";
+"WAStatusExit" = "退出";
+
+"WAAboutDesc" = "Wallpaper上千張高清壁紙，每天給您帶來全新的藝術體驗。
+
+功能：
+- 自動更換壁紙：15分鐘、30分鐘 、45分鐘、1小時、2小時、1天等。
+- 搜索：支持模糊/精確搜索，快速找到喜愛的壁紙。
+- 快捷鍵：切換不喜愛的壁紙。
+- 預覽質量切換：網絡不好，切換圖片預覽質量。
+- 下載歷史：記錄使用的壁紙，防止喜愛的壁紙誤刪。
+
+使用Wallpaper保持您的Mac桌面的新鮮感！";
+
+"WAChangeWallpaperSuccess" = "壁紙切換成功";
+"WAChangeWallpaperError" = "壁紙切換失敗";
+
+"WAAutoTimeOff" = "關";
+"WAAutoTime15" = "15分鍾";
+"WAAutoTime30" = "30分鍾";
+"WAAutoTime45" = "45分鍾";
+"WAAutoTime60" = "1小時";
+"WAAutoTime120" = "2小時";
+"WAAutoTime1" = "1天";
+"WAPreviewQuilatySmall" = "低質量";
+"WAPreviewQuilatyMedium" = "中等質量";
+"WAPreviewQuilatyFull" = "高質量";
+
+"WANetworkFailed" = "未請求到數據，請稍候重試";
+"WANoMoreData" = "沒有更多數據了";
+"WADownloadError" = "下載失敗";
+
+"WAGrayscaleColor" = "灰度";
+"WATransparentColor" = "透明";
+"WARedColor" = "紅色";
+"WAOrangeColor" = "橙色";
+"WAYellowColor" = "黃色";
+"WAGreenColor" = "綠色";
+"WATurquoiseColor" = "綠松石";
+"WABlueColor" = "藍色";
+"WALilacColor" = "紫丁香";
+"WAPinkColor" = "粉紅";
+"WAWhiteColor" = "白色";
+"WAGrayColor" = "灰色";
+"WABlackColor" = "黑色";
+"WABrownColor" = "棕色";
