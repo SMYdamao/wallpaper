@@ -180,8 +180,6 @@ extension WAMainWallpaperSettingVC {
             if urlStr == self.data?.oriUrl {
                 self.progresBar.doubleValue = 1
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
-                    // 存储到数据库
-                    WADataManager.shared.append(downloadData)
                     // 移除
                     self.downloadCache.removeValue(forKey: urlStr)
                    // 刷新状态
@@ -193,8 +191,6 @@ extension WAMainWallpaperSettingVC {
                 DispatchQueue.main.async {[weak self] in
                     if let cacheData = self?.downloadCache.removeValue(forKey: urlStr) {
                         cacheData.progresValue = 0
-                        // 存储到数据库
-                        WADataManager.shared.append(cacheData)
                     }
                 }
             }
@@ -206,6 +202,9 @@ extension WAMainWallpaperSettingVC {
         if let url = data?.oriUrl {
             let path =  ImageCache.default.cachePath(forKey: url)
             if FileManager.default.fileExists(atPath: path) {
+                // 存储到数据库
+                WADataManager.shared.append(data!)
+                // 设置壁纸
                 WADataManager.shared.setDesktopImage(URL(fileURLWithPath: path))
             } else {
                 toasStr = "请先下载"

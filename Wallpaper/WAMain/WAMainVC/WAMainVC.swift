@@ -72,10 +72,8 @@ class WAMainVC: NSViewController {
                 wallpaperSettingVC.view.isHidden = false
                 wallpaperSettingVC.refreshWallpaperPreview()
             case .myUpload:
-                wallpaperServerListVC.view.isHidden = false
                 wallpaperSettingVC.view.isHidden = true
             case .setting:
-                wallpaperLocalListVC.view.isHidden = false
                 wallpaperSettingVC.view.isHidden = true
             }
         }
