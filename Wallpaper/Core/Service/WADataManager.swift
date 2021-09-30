@@ -254,8 +254,26 @@ class WADataManager: NSObject {
     }
     
     // MARK: < Public function >
-    // 设置壁纸
-    func setDesktopImage(_ url: URL, model: Any? = nil) {
+    
+    /// 设置壁纸 - 传入模型，设置后会自动存入本地数据库
+    func setDesctopImage(data: WAMainWallpaperModel) {
+        guard let url = data.oriUrl else {
+            return
+        }
+        WANetwork.download(url, progress: nil) { [unowned self] (filePath) in
+            if let path = filePath {
+                DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {[unowned self] in
+                    // 存储到数据库
+                    self.append(data)
+                    // 设置壁纸
+                    self.setDesktopImage(URL(fileURLWithPath: path))
+                }
+            }
+        }
+    }
+    
+    /// 设置壁纸 - 传入url
+    func setDesktopImage(_ url: URL) {
         var result: Bool = true
         switch wallpaperSettingType {
         case .current:
@@ -366,7 +384,7 @@ class WADataManager: NSObject {
                     WANetwork.download(url, progress: nil) { [unowned self] (filePath) in
                         if let path = filePath {
                             DispatchQueue.main.async { [unowned self] in
-                                self.setDesktopImage(URL(fileURLWithPath: path), model: model)
+                                self.setDesktopImage(URL(fileURLWithPath: path))
                             }
                         }
                     }
@@ -383,7 +401,7 @@ class WADataManager: NSObject {
                     let temp = self.previousWallpaperModel
                     self.previousWallpaperModel = self.currentWallpaper
                     self.currentWallpaper = temp
-                    self.setDesktopImage(URL(fileURLWithPath: path), model: self.previousWallpaperModel)
+                    self.setDesktopImage(URL(fileURLWithPath: path))
                 }
             }
         }

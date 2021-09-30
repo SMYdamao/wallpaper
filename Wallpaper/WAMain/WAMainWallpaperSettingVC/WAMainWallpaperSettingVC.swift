@@ -198,24 +198,10 @@ extension WAMainWallpaperSettingVC {
     }
     
     private func settingWallpaper() {
-        var toasStr = ""
-        if let url = data?.oriUrl {
-            let path =  ImageCache.default.cachePath(forKey: url)
-            if FileManager.default.fileExists(atPath: path) {
-                // 存储到数据库
-                WADataManager.shared.append(data!)
-                // 设置壁纸
-                WADataManager.shared.setDesktopImage(URL(fileURLWithPath: path))
-            } else {
-                toasStr = "请先下载"
-            }
-        } else {
-            toasStr = "请先下载"
+        guard let model = data else {
+            return
         }
-        
-        if toasStr.count > 0 {
-            WAHUDManager.show(to: (view.superview?.superview)!, text: toasStr, delay: 2)
-        }
+        WADataManager.shared.setDesctopImage(data: model)
     }
 }
 
