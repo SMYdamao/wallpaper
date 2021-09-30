@@ -18,9 +18,15 @@ class WAMainWallpaperListVC: NSViewController {
     @IBOutlet weak var clipView: NSClipView!
     @IBOutlet weak var collectionView: NSCollectionView!
     
-    public weak var delegate: WAMainWallpaperListDelegate?
+    enum WAWallpaperType {
+        case service
+        case local
+    }
     
-    var pageNum: Int = 1
+    public weak var delegate: WAMainWallpaperListDelegate?
+    public var listType: WAWallpaperType = .service
+    
+    var pageNum: Int = 0
     var isRequestNextPage: Bool = false
     var dataSource: [WAMainWallpaperModel] = []
     let itemSpace: CGFloat = 8
@@ -68,12 +74,25 @@ class WAMainWallpaperListVC: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         initWallpaperView()
-        registScrollViewNotification()
+        if listType == .service {
+            registScrollViewNotification()
+        }
+    }
+    
+    public func reloadData() {
+        if listType == .service {
+            // 重新请求网络数据
+            previousPageData()
+        } else {
+            // 读取本地数据
+            dataSource = WADataManager.shared.getDownloads()
+            collectionView.reloadData()
+        }
     }
 }
 
 extension WAMainWallpaperListVC {
-    func initWallpaperView() {
+    private func initWallpaperView() {
         scrollView.drawsBackground = false
         scrollView.backgroundColor = .clear
         scrollView.scrollerStyle = .overlay
@@ -100,11 +119,7 @@ extension WAMainWallpaperListVC {
     
     // MARK: < Network >
     private func previousPageData() {
-        if dataSource.count > 0 {
-            return
-        }
         pageNum = 1
-        dataSource.removeAll()
         nextPageData()
     }
     
@@ -112,6 +127,13 @@ extension WAMainWallpaperListVC {
         let count = dataSource.count
         if count >= urlList.count {
             return
+        }
+        
+        // 发起网络请求、、、
+        
+        // 请求结果处理
+        if pageNum == 1 {
+            dataSource.removeAll()
         }
         pageNum += 1
         let maxCount = min(count + 10, urlList.count)

@@ -33,7 +33,7 @@ extension WAMainVC {
         categoryView.setBackgroundColor(NSColor.init(0x343535))
         
         // 默认选中第一个菜单
-        choosedMenu(menuIdx: 0, ignoreMut: true)
+        choosedMenu(menuType: .serverList, ignoreMut: true)
     }
 }
 
@@ -62,23 +62,25 @@ extension WAMainVC {
         }
     }
     
-    func choosedMenu(menuIdx: Int, ignoreMut: Bool = false) {
-        if !ignoreMut && menuIdx == currentMenuIdx {
+    func choosedMenu(menuType: WAMenuType, ignoreMut: Bool = false) {
+        if !ignoreMut && menuType == currentMenu {
             return
         }
-        let menu = menuList[menuIdx]
-        updateMenuState(menu: menu, state: .choosed)
-        if currentMenuIdx >= 0 && currentMenuIdx < menuList.count {
-            let prefenu = menuList[currentMenuIdx]
+        // 重置上一个
+        if  currentMenu.rawValue < menuList.count {
+            let prefenu = menuList[currentMenu.rawValue]
             updateMenuState(menu: prefenu, state: .normal)
         }
-        currentMenuIdx = menuIdx
+        // 设置当前选中
+        let menu = menuList[menuType.rawValue]
+        updateMenuState(menu: menu, state: .choosed)
+        currentMenu = menuType
     }
 }
 
 extension WAMainVC: WABaseButtonMouseEventDelegate, WABaseButtonClickDelegate {
     func wa_buttonMouseExited(button: WABaseButton) {
-        if button.wa_Index == currentMenuIdx {
+        if button.wa_Index == currentMenu.rawValue {
             return
         }
         let menu = menuList[button.wa_Index]
@@ -86,7 +88,7 @@ extension WAMainVC: WABaseButtonMouseEventDelegate, WABaseButtonClickDelegate {
     }
     
     func wa_buttonMouseEntered(button: WABaseButton) {
-        if button.wa_Index == currentMenuIdx {
+        if button.wa_Index == currentMenu.rawValue {
             return
         }
         let menu = menuList[button.wa_Index]
@@ -94,6 +96,9 @@ extension WAMainVC: WABaseButtonMouseEventDelegate, WABaseButtonClickDelegate {
     }
     
     func wa_buttonClick(button: WABaseButton) {
-        choosedMenu(menuIdx: button.wa_Index)
+        guard let type = WAMenuType(rawValue: button.wa_Index) else {
+            return
+        }
+        choosedMenu(menuType: type)
     }
 }

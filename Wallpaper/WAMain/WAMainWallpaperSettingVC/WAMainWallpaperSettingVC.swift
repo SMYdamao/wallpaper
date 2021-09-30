@@ -52,6 +52,8 @@ class WAMainWallpaperSettingVC: NSViewController {
             wallpaperSize.stringValue = "\(model.size.width)*\(model.size.height)    \(model.bSizeDesc)"
             updateButtonState()
         } else {
+            wallpaperDownloadView.isHidden = true
+            previewImage.image = nil
             //            if let url = WADataManager.shared.getDesktopImage() {
             // TODOSMY:  由于APP不能获取APP沙盒以外的资源，因此需 判断桌面壁纸是否是我设置上去的，若是直接展示项目内的图片
             //                previewImage.kf.setImage(with: url, placeholder: NSImage.createImage(with: NSColor.init(0x343535), size: previewImage.size))
