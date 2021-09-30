@@ -5,11 +5,11 @@
 "WASearchPlacholder" = "keyword search";
 "WASearchTitle" = "Search";
 "WASearchKeyword" = "Please enter a keyword";
-"WADownloadAntiElection" = "Inverse";
-"WADownloadDelete" = "Delete";
-"WADownloadTitle" = "Download";
-"WADownloadSelectAll" = "Check in";
-"WADownloadCancel" = "Cancel";
+"WallpaperAntiElection" = "Inverse";
+"WallpaperDelete" = "Delete";
+"WallpaperTitle" = "Download";
+"WallpaperSelectAll" = "Check in";
+"WallpaperCancel" = "Cancel";
 "WASettingChange" = "Change";
 "WASettingTitle" = "Setting";
 "WASettingAbout" = "About us";
@@ -54,7 +54,7 @@ Use Wallpaper to keep your Mac desktop fresh!";
 
 "WANetworkFailed" = "No data requested, please try again later";
 "WANoMoreData" = "No more data";
-"WADownloadError" = "Download failed";
+"WallpaperError" = "Download failed";
 
 "WAGrayscaleColor" = "grayscale";
 "WATransparentColor" = "transparent";

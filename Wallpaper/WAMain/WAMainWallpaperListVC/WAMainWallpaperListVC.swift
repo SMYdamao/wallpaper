@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import Kingfisher
 
 protocol WAMainWallpaperListDelegate: NSObjectProtocol {
     func wallpaperList(vc: WAMainWallpaperListVC ,didSelect item: WAMainWallpaperModel)
@@ -116,12 +117,12 @@ extension WAMainWallpaperListVC {
         let maxCount = min(count + 10, urlList.count)
         for idx in count..<maxCount {
             let data = WAMainWallpaperModel()
-            data.thuUrl = "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fattach.bbs.miui.com%2Fforum%2F201409%2F08%2F073324jdehibueaiddhibl.png&refer=http%3A%2F%2Fattach.bbs.miui.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1635151821&t=0e3722851f11eb414c97a032dc9c0da2"
+            data.wid = "\(idx)"
+            data.thuUrl = urlList[idx]
             data.oriUrl = urlList[idx]
             data.title = "撒桑蚕丝从哪查南\(idx)"
-            data.width = Int(arc4random_uniform(1000)+1100)
-            data.height = Int(arc4random_uniform(100)+1000)
-            data.size = Int(arc4random_uniform(1000000)+1000000)
+            data.size = .init(width: Int(arc4random_uniform(1000)+1100), height: Int(arc4random_uniform(100)+1000))
+            data.bSize = Int(arc4random_uniform(1000000)+1000000)
             dataSource.append(data)
         }
         print("加载数据==========\(dataSource.count)条")

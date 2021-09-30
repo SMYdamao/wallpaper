@@ -30,7 +30,6 @@
 		F4A2330026FAD4CC007B10F0 /* NSImage+Wallpaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A232FF26FAD4CC007B10F0 /* NSImage+Wallpaper.swift */; };
 		F4A2330226FAD4E0007B10F0 /* Date+Wallpaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2330126FAD4E0007B10F0 /* Date+Wallpaper.swift */; };
 		F4A2330426FAD4F4007B10F0 /* Dictionary+Wallpaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2330326FAD4F4007B10F0 /* Dictionary+Wallpaper.swift */; };
-		F4A2330626FAD54D007B10F0 /* WADownloadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2330526FAD54D007B10F0 /* WADownloadModel.swift */; };
 		F4A2330826FAD5C5007B10F0 /* WAGalleryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2330726FAD5C5007B10F0 /* WAGalleryModel.swift */; };
 		F4A2330B26FADBD2007B10F0 /* 001.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F4A2330A26FADBD2007B10F0 /* 001.jpeg */; };
 		F4DD10DA26FB1D4A00D6694E /* NSWindow+Wallpaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DD10D926FB1D4A00D6694E /* NSWindow+Wallpaper.swift */; };
@@ -46,6 +45,8 @@
 		F4DE488526FDD350006AFB9C /* WAMainWallpaperItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE488326FDD350006AFB9C /* WAMainWallpaperItem.swift */; };
 		F4DE488626FDD350006AFB9C /* WAMainWallpaperItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4DE488426FDD350006AFB9C /* WAMainWallpaperItem.xib */; };
 		F4DE488826FDD4E2006AFB9C /* WAMainWallpaperModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE488726FDD4E2006AFB9C /* WAMainWallpaperModel.swift */; };
+		F4DE99002705545E00E0272C /* WADBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE98FF2705545E00E0272C /* WADBManager.swift */; };
+		F4DE9902270561CE00E0272C /* WAUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE9901270561CE00E0272C /* WAUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,7 +76,6 @@
 		F4A232FF26FAD4CC007B10F0 /* NSImage+Wallpaper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Wallpaper.swift"; sourceTree = "<group>"; };
 		F4A2330126FAD4E0007B10F0 /* Date+Wallpaper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Wallpaper.swift"; sourceTree = "<group>"; };
 		F4A2330326FAD4F4007B10F0 /* Dictionary+Wallpaper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Wallpaper.swift"; sourceTree = "<group>"; };
-		F4A2330526FAD54D007B10F0 /* WADownloadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WADownloadModel.swift; sourceTree = "<group>"; };
 		F4A2330726FAD5C5007B10F0 /* WAGalleryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAGalleryModel.swift; sourceTree = "<group>"; };
 		F4A2330A26FADBD2007B10F0 /* 001.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 001.jpeg; sourceTree = "<group>"; };
 		F4DD10D926FB1D4A00D6694E /* NSWindow+Wallpaper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSWindow+Wallpaper.swift"; sourceTree = "<group>"; };
@@ -100,6 +100,8 @@
 		F4DE488326FDD350006AFB9C /* WAMainWallpaperItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAMainWallpaperItem.swift; sourceTree = "<group>"; };
 		F4DE488426FDD350006AFB9C /* WAMainWallpaperItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WAMainWallpaperItem.xib; sourceTree = "<group>"; };
 		F4DE488726FDD4E2006AFB9C /* WAMainWallpaperModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAMainWallpaperModel.swift; sourceTree = "<group>"; };
+		F4DE98FF2705545E00E0272C /* WADBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WADBManager.swift; sourceTree = "<group>"; };
+		F4DE9901270561CE00E0272C /* WAUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,8 @@
 				F4A232D826FACFE6007B10F0 /* WAEventMonitor.swift */,
 				F4A232DA26FAD011007B10F0 /* WADataManager.swift */,
 				F4A232DC26FAD11D007B10F0 /* WAHUDManager.swift */,
+				F4DE98FF2705545E00E0272C /* WADBManager.swift */,
+				F4DE9901270561CE00E0272C /* WAUtils.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -221,7 +225,6 @@
 			isa = PBXGroup;
 			children = (
 				F4A232E226FAD338007B10F0 /* WANetwork.swift */,
-				F4A2330526FAD54D007B10F0 /* WADownloadModel.swift */,
 				F4A2330726FAD5C5007B10F0 /* WAGalleryModel.swift */,
 			);
 			path = Network;
@@ -424,6 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4DE486A26FC7589006AFB9C /* WAMainWindow.swift in Sources */,
+				F4DE99002705545E00E0272C /* WADBManager.swift in Sources */,
 				F4A232C726FACF74007B10F0 /* WAMainVC.swift in Sources */,
 				F46264C626FED8890059E88A /* WAMainMenuViewModel.swift in Sources */,
 				F4A232E026FAD154007B10F0 /* Macro.swift in Sources */,
@@ -431,7 +435,6 @@
 				F4A232F826FAD455007B10F0 /* NSControl+Wallpaper.swift in Sources */,
 				F4A232FC26FAD48A007B10F0 /* NSColler+Wallpaper.swift in Sources */,
 				F4A232FA26FAD470007B10F0 /* NSButton+Wallpaper.swift in Sources */,
-				F4A2330626FAD54D007B10F0 /* WADownloadModel.swift in Sources */,
 				F46264C926FEDB6E0059E88A /* WAMainWallpaperListVC.swift in Sources */,
 				F4A232C526FACF74007B10F0 /* AppDelegate.swift in Sources */,
 				F4A2330826FAD5C5007B10F0 /* WAGalleryModel.swift in Sources */,
@@ -440,6 +443,7 @@
 				F4A232E326FAD338007B10F0 /* WANetwork.swift in Sources */,
 				F4DE488526FDD350006AFB9C /* WAMainWallpaperItem.swift in Sources */,
 				F4DE487C26FD7B4A006AFB9C /* WABaseView.swift in Sources */,
+				F4DE9902270561CE00E0272C /* WAUtils.swift in Sources */,
 				F4A232DB26FAD011007B10F0 /* WADataManager.swift in Sources */,
 				F4A232FE26FAD4B2007B10F0 /* String+Wallpaper.swift in Sources */,
 				F4DE486C26FC79CA006AFB9C /* WAMainWindowController.swift in Sources */,

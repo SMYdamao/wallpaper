@@ -49,7 +49,7 @@ class WAMainWallpaperSettingVC: NSViewController {
             self.data = model
             previewImage.kf.setImage(with: URL(string: url))
             wallpaperTitle.stringValue = model.title ?? ""
-            wallpaperSize.stringValue = "\(model.width)*\(model.height)    \(model.sizeDesc)"
+            wallpaperSize.stringValue = "\(model.size.width)*\(model.size.height)    \(model.bSizeDesc)"
             updateButtonState()
         } else {
             //            if let url = WADataManager.shared.getDesktopImage() {
@@ -113,7 +113,8 @@ extension WAMainWallpaperSettingVC {
         guard let url = data?.oriUrl else {
             return
         }
-        if  FileManager.default.fileExists(atPath: ImageCache.default.cachePath(forKey: url)) {
+        let path = ImageCache.default.cachePath(forKey: url)
+        if  FileManager.default.fileExists(atPath: path) {
             downloadBtn.setBackgroundColor(NSColor.init(0x1269FF).withAlphaComponent(0.5))
             downloadBtn.setTitle("已下载")
             downloadBtn.isEnabled = false
@@ -150,32 +151,35 @@ extension WAMainWallpaperSettingVC {
         choosedWindowSetting(type: type)
     }
     
+    /// 下载壁纸
     private func downloadWallpaper() {
-        guard let urlStr = data?.oriUrl, let url = URL(string: urlStr) else {
+        guard let downloadData = data, let urlStr = downloadData.oriUrl else {
             return
         }
         self.downloadBtn.isHidden = true
         self.progresBar.isHidden = false
         // 缓存
-        downloadCache[urlStr] = data
-        ImageDownloader.default.downloadImage(with: url, options: nil) { receivedSize, totalSize in
-            let progress =  Double(receivedSize/totalSize)
-            if urlStr == self.data?.oriUrl {
-                self.progresBar.doubleValue = progress
-                self.data?.progresValue = progress
-                self.downloadBtn.isHidden = true
-            } else {
-                let cacheData = self.downloadCache[urlStr]
-                cacheData?.progresValue = progress
+        downloadCache[urlStr] = downloadData
+        // 下载
+        WANetwork.download(urlStr) { progress in
+            DispatchQueue.main.async {[weak self] in
+                if urlStr == self?.data?.oriUrl {
+                    self?.progresBar.doubleValue = progress
+                    self?.data?.progresValue = progress
+                    self?.downloadBtn.isHidden = true
+                } else {
+                    let cacheData = self?.downloadCache[urlStr]
+                    cacheData?.progresValue = progress
+                }
             }
-        } completionHandler: { [unowned self] result in
-            if let data = try? result.get().originalData {
-                // 缓存下来
-                ImageCache.default.storeToDisk(data, forKey: urlStr)
-            }
+        } completion: { filePath in
+            WALog("下载成功")
+            // UI刷新及逻辑
             if urlStr == self.data?.oriUrl {
                 self.progresBar.doubleValue = 1
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+                    // 存储到数据库
+                    WADataManager.shared.append(downloadData)
                     // 移除
                     self.downloadCache.removeValue(forKey: urlStr)
                    // 刷新状态
@@ -184,8 +188,13 @@ extension WAMainWallpaperSettingVC {
                 }
             } else {
                 // 移除
-                let cacheData = self.downloadCache.removeValue(forKey: urlStr)
-                cacheData?.progresValue = 0
+                DispatchQueue.main.async {[weak self] in
+                    if let cacheData = self?.downloadCache.removeValue(forKey: urlStr) {
+                        cacheData.progresValue = 0
+                        // 存储到数据库
+                        WADataManager.shared.append(cacheData)
+                    }
+                }
             }
         }
     }
@@ -204,7 +213,7 @@ extension WAMainWallpaperSettingVC {
         }
         
         if toasStr.count > 0 {
-            WAHUDManager.show(to: (view.superview?.superview)!, text: toasStr, delay: 0)
+            WAHUDManager.show(to: (view.superview?.superview)!, text: toasStr, delay: 2)
         }
     }
 }

@@ -5,11 +5,11 @@
 "WASearchPlacholder" = "关键词搜索";
 "WASearchTitle" = "搜索";
 "WASearchKeyword" = "请输入关键词";
-"WADownloadAntiElection" = "反选";
-"WADownloadDelete" = "删除";
-"WADownloadTitle" = "下载";
-"WADownloadSelectAll" = "全选";
-"WADownloadCancel" = "取消";
+"WallpaperAntiElection" = "反选";
+"WallpaperDelete" = "删除";
+"WallpaperTitle" = "下载";
+"WallpaperSelectAll" = "全选";
+"WallpaperCancel" = "取消";
 "WASettingChange" = "更改";
 "WASettingTitle" = "设置";
 "WASettingAbout" = "关于我们";
@@ -54,7 +54,7 @@
 
 "WANetworkFailed" = "未请求到数据，请稍后重试";
 "WANoMoreData" = "没有更多数据了";
-"WADownloadError" = "下载失败";
+"WallpaperError" = "下载失败";
 
 "WAGrayscaleColor" = "灰度";
 "WATransparentColor" = "透明";

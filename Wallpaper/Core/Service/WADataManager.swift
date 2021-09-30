@@ -12,6 +12,7 @@ import UserNotifications
 import MASShortcut
 import FMDB
 import ScreenSaver
+import Kingfisher
 
 enum WAImageQualityType: Int {
     case small = 0  // 低
@@ -69,39 +70,13 @@ class WADataManager: NSObject {
         case next
     }
 
-    var timer: Timer?
+    private var timer: Timer?
+    private var db: WADBManager = .shared
     
-    private lazy var database: FMDatabase? = {
-        let path = cachePath + "/Wallpaper.sqlite"
-        let db = FMDatabase.init(path: path)
-        return db
-    }()
     
     override init() {
         super.init()
-        // 修复v1.0版本Bug，下载历史重复添加问题
-        if let version = appVersion {
-            switch compareVersion(version, "1.0") {
-            case .orderedDescending:
-                if UserDefaults.standard.object(forKey: WADataKey.version.rawValue) == nil, let _ = try? FileManager.default.removeItem(atPath: cachePath + "/Wallpaper.sqlite") {
-                    UserDefaults.standard.setValue("version", forKey: WADataKey.version.rawValue)
-                }
-            default:
-                break
-            }
-        }
-        // 创建下载历史表
-        if database?.open() ?? false {
-            if let isExist = database?.tableExists("WADownload"), isExist {} else {
-                let sql = "CREATE TABLE WADownload(wid TEXT PRIMARY KEY, fullUrl TEXT, mediumUrl TEXT, smallUrl TEXT,user TEXT);"
-                do {
-                    try database?.executeUpdate(sql, values: nil)
-                } catch {
-                    WALog(error)
-                }
-                database?.close()
-            }
-        }
+        db.setup()
     }
     
     // MARK: < App info >
@@ -129,18 +104,12 @@ class WADataManager: NSObject {
         }
     }
     
-    var cachePath: String {
-        get {
-            return NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first ?? ""
-        }
-    }
-    
-    var currentWallpaper: WADownloadModel? {    // 当前的壁纸
+    var currentWallpaper: WAMainWallpaperModel? {    // 当前的壁纸
         get {
             if let data = UserDefaults.standard.object(forKey: "wa.currentWallpaper") as? Data {
                 let unarchiver = try? NSKeyedUnarchiver.init(forReadingFrom: data)
                 unarchiver?.requiresSecureCoding = false
-                return try? unarchiver?.decodeTopLevelObject(forKey: NSKeyedArchiveRootObjectKey) as? WADownloadModel
+                return try? unarchiver?.decodeTopLevelObject(forKey: NSKeyedArchiveRootObjectKey) as? WAMainWallpaperModel
             }
             return nil
         }
@@ -152,7 +121,7 @@ class WADataManager: NSObject {
         }
     }
     
-    private var previousWallpaperModel: WADownloadModel? // 上一张
+    private var previousWallpaperModel: WAMainWallpaperModel? // 上一张
     
     // MARK: < Cofig info >
     var isStartUp: Bool {   // 开启自启
@@ -311,13 +280,7 @@ class WADataManager: NSObject {
        
         if isNotification {
             let title = result ? NSLocalizedString("WAChangeWallpaperSuccess", comment: "壁纸切换成功") : NSLocalizedString("WAChangeWallpaperError", comment: "壁纸切换失败")
-            var m: WADownloadModel?
-            if model is WAGalleryModel {
-                m = WADownloadModel.init(model as? WAGalleryModel)
-            } else if model is WADownloadModel {
-                m = model as? WADownloadModel
-            }
-            postNotification(with: title, model: m)
+            postNotification(with: title)
         }
     }
     
@@ -372,43 +335,19 @@ class WADataManager: NSObject {
         timer = nil
     }
     
-    // 添加历史
-    func append(_ model: WADownloadModel) {
-        if let fullUrl = model.fullUrl, let smallUrl = model.smallUrl, let mediumUrl = model.mediumUrl, let wid = model.wid, let user = model.user {
-            let sql = "INSERT OR IGNORE INTO WADownload (wid,fullUrl,mediumUrl,smallUrl,user) VALUES ('\(wid)','\(fullUrl)','\(mediumUrl)','\(smallUrl)','\(user)');"
-            if database?.open() ?? false {
-                do {
-                    try database?.executeUpdate(sql, values: nil)
-                } catch {
-                    WALog(error)
-                }
-                database?.close()
-            }
-        }
+    // 添加数据
+    func append(_ model: WAMainWallpaperModel) {
+        db.insert(model)
     }
     
-    // 移出历史
-    func remove(_ models: [WADownloadModel], handler: (()->())?) {
-        DispatchQueue.init(label: "removeDownload").async { [unowned self] in
-            for model in models {
-                if let wid = model.wid {    // 数据库中删除数据
-                    let sql = "DELETE FROM WADownload WHERE wid = '\(wid)';"
-                    if self.database?.open() ?? false {
-                        try? self.database?.executeUpdate(sql, values: nil)
-                        self.database?.close()
-                    }
-                }
-                if let urlString = model.fullUrl, let url = URL.init(string: urlString) {    // 本地存在文件删除
-                    let fileName = url.path.md5()
-                    let filePath = WADataManager.shared.wallpaperPath + "/\(fileName).jpg"
-                    if FileManager.default.fileExists(atPath: filePath) {
-                        try? FileManager.default.removeItem(atPath: filePath)
-                    }
-                }
+    // 移除数据
+    func remove(_ models: [WAMainWallpaperModel], handler: (()->())?) {
+        db.remove(models) { model in
+            if let urlString = model.oriUrl {    // 本地存在文件删除
+                ImageCache.default.removeImage(forKey: urlString)
             }
-            DispatchQueue.main.async {
-                handler?()
-            }
+        } completionHandler: {
+            handler?()
         }
     }
     
@@ -420,24 +359,14 @@ class WADataManager: NSObject {
         if let wid = currentWallpaper?.wid {
             // 存储上一张
             previousWallpaperModel = currentWallpaper
-            let sql = "SELECT * FROM WADownload WHERE wid != '\(wid)' ORDER BY RANDOM() LIMIT 1;"
-            if database?.open() ?? false, let result = try? database?.executeQuery(sql, values: nil) {
-                var download: WADownloadModel?
-                while result.next() {
-                    download = WADownloadModel.init()
-                    download?.fullUrl = result.string(forColumn: "fullUrl")
-                    download?.smallUrl = result.string(forColumn: "smallUrl")
-                    download?.mediumUrl = result.string(forColumn: "mediumUrl")
-                    download?.wid = result.string(forColumn: "wid")
-                    download?.user = result.string(forColumn: "user")
-                }
-                database?.close()
-                currentWallpaper = download
-                if let url = download?.fullUrl {
-                    WANetwork.download(url, progress: nil) { [unowned self] (fileUrl) in
-                        if let file = fileUrl {
+            // 设置下一张
+            if let model = db.query(wid: wid) {
+                currentWallpaper = model
+                if let url = model.oriUrl {
+                    WANetwork.download(url, progress: nil) { [unowned self] (filePath) in
+                        if let path = filePath {
                             DispatchQueue.main.async { [unowned self] in
-                                self.setDesktopImage(file, model: download)
+                                self.setDesktopImage(URL(fileURLWithPath: path), model: model)
                             }
                         }
                     }
@@ -448,38 +377,21 @@ class WADataManager: NSObject {
     
     // 上一张
     func previousWallpaper() {
-        if let url = previousWallpaperModel?.fullUrl {
-            WANetwork.download(url, progress: nil) { [unowned self] (fileUrl) in
-                if let file = fileUrl {
+        if let url = previousWallpaperModel?.oriUrl {
+            WANetwork.download(url, progress: nil) { [unowned self] (filePath) in
+                if let path = filePath {
                     let temp = self.previousWallpaperModel
                     self.previousWallpaperModel = self.currentWallpaper
                     self.currentWallpaper = temp
-                    self.setDesktopImage(file, model: self.previousWallpaperModel)
+                    self.setDesktopImage(URL(fileURLWithPath: path), model: self.previousWallpaperModel)
                 }
             }
         }
     }
     
     // 下载历史
-    func getDownloads() -> [WADownloadModel] {
-        let sql = "SELECT * FROM WADownload;"
-        if database?.open() ?? false {
-            var arr: [WADownloadModel] = []
-            if let result = try? database?.executeQuery(sql, values: nil) {
-                while result.next() {
-                    let previousModel = WADownloadModel.init()
-                    previousModel.fullUrl = result.string(forColumn: "fullUrl")
-                    previousModel.smallUrl = result.string(forColumn: "smallUrl")
-                    previousModel.mediumUrl = result.string(forColumn: "mediumUrl")
-                    previousModel.wid = result.string(forColumn: "wid")
-                    previousModel.user = result.string(forColumn: "user")
-                    arr.append(previousModel)
-                }
-            }
-            database?.close()
-            return arr
-        }
-        return []
+    func getDownloads() -> [WAMainWallpaperModel] {
+        return db.queryAll()
     }
     
     // 路径移动
@@ -507,7 +419,7 @@ class WADataManager: NSObject {
     }
     
     // MARK: < Private function >
-    private func postNotification(with message: String, model: WADownloadModel?) {
+    private func postNotification(with message: String) {
         // 请求权限
         let center = UNUserNotificationCenter.current()
         center.delegate = self
@@ -520,9 +432,6 @@ class WADataManager: NSObject {
         // 发送通知
         let content = UNMutableNotificationContent.init()
         content.title = message
-        if let user = model?.user {
-            content.body =  "Pixabay-\(user)"
-        }
         content.sound = UNNotificationSound.default
         let categoryId = "com.damao.wallpaper.category"
         content.categoryIdentifier = categoryId

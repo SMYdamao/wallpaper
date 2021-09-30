@@ -6,32 +6,25 @@
 //
 
 import Foundation
-import Alamofire
 import Kingfisher
 
 struct WANetwork {
     
     private static var downloadTask: DownloadTask?
     
-    static func download(_ urlString: String, progress:( (CGFloat)->())? = nil, completion: @escaping (URL?)->()) {
+    static func download(_ urlString: String, progress:( (Double)->())? = nil, completion: @escaping (String?)->()) {
         if let url = URL.init(string: urlString) {
-            let fileName = url.path.md5()
-            let filePath = WADataManager.shared.wallpaperPath + "/\(fileName).jpg"
-            let fileUrl = URL.init(fileURLWithPath: filePath)
+            let filePath = ImageCache.default.cachePath(forKey: urlString)
             if FileManager.default.fileExists(atPath: filePath) {   // 文件存在，直接返回
-                completion(fileUrl)
+                completion(filePath)
             } else {
                 self.downloadTask = ImageDownloader.default.downloadImage(with: url, options: .none, progressBlock: { (receivedSize, totalSize) in
-                    progress?(CGFloat(receivedSize)/CGFloat(totalSize))
+                    progress?(Double(receivedSize)/Double(totalSize))
                 }) { (result) in
                     let resultData = try? result.get()
                     if let data = resultData?.originalData {
-                        do {
-                            try data.write(to: fileUrl, options: .atomic)
-                            completion(fileUrl)
-                        } catch {
-                            completion(nil)
-                        }
+                        ImageCache.default.storeToDisk(data, forKey: urlString)
+                        completion(filePath)
                     } else {
                         completion(nil)
                     }
